@@ -1,0 +1,97 @@
+/*Recibo individual*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'sans-serif', 'helvetica';
+}
+html{
+    margin: 0pt 0pt;
+}
+.recibo{
+    width: 8cm;
+    height: auto;
+    padding-bottom: 2px;
+    background: #ddd;
+    border-radius: 5px;
+    display: block;
+    position: relative;
+    margin: 1rem auto 1rem auto;
+    border: 0.2px dashed rgba(101, 101, 101, 0.53);
+}
+.nombreComp{
+    width: 50%;
+    height: 39px;
+    border-top-left-radius: 5px;
+    float: left;
+    background: #eee;
+}
+.logoAs{
+   width: 4cm;
+}
+.infoComp{
+    width: 50%;
+    height: 39px;
+    background: #eee;
+    border-top-right-radius: 5px;
+    float: right;
+    font-size: 7px;
+    text-align: center;
+    line-height: 13px;
+}
+.neg{
+    font-weight: bold;
+}
+.datosRecibo, .infoVehic, .logoAs, .textoPieRec{
+    padding: 2px 12px 0px 12px;
+    font-size: 7px;
+}
+.datosRecibo{
+    height: auto;
+    width: 100%;
+    line-height: 13px;
+    margin: 0px 0px 4px 0px;
+}
+.infoVehic{
+    background: #eee;
+    height: auto;
+    line-height: 13px;
+}
+.pieRecibo{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    line-height: 11px;
+    margin: 2px 0px 0px 0px;
+}
+.textoPieRec{
+    font-size: 7px;
+}
+.lineaVenImp{
+    background: #aaa;
+    margin: 4px 0px 0px 0px;
+    border-radius: 3px;
+    width: 100%;
+}
+.lineaVenImp .cont{
+    margin: 0px 6px 0px 6px;
+}
+
+/*Listado de recibos*/
+
+.LR2 .IH{
+    text-align: center;
+}
+
+.LR2 .IH .IH-titulo{
+    padding: 5px;
+}
+
+.LR2 .IH .IH-subTitulo{
+    color: #aaa;
+}
+
+.LR2 .LR3{
+    width: 50%;
+    float: left;
+}

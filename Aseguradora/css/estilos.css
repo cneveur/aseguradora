@@ -1,0 +1,2104 @@
+/*---------------------- GENERALES -------------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background: #e1ecf2;
+  zoom: 85%;
+}
+input:focus,
+textarea:focus,
+select:focus{
+  outline: none;
+}
+ul.tabs{
+  margin-bottom: 1rem;
+}
+.claseError{
+  border: 1px solid #ff00005c !important;
+  background: #ff00000a !important;
+}
+.claseValido{
+  border: 1px solid #ccc;
+  background: transparent;
+}
+.row{
+  margin-bottom: 2px;
+}
+/*Formularios generales*/
+.formulario fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: auto;
+  position: relative;
+}
+/*inputs*/
+.formulario input[type=time]{
+  padding: 5px;
+}
+.formulario input, .formulario textarea{
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #2C3E50;
+  font-size: 13px;
+}
+.formulario select {
+    background-color: rgba(255,255,255,0.9);
+    width: 100%;
+    padding: 5px;
+    border-radius: 2px;
+    height: 33px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+/*buttons*/
+.formulario .botonFormulario {
+  width: 100px;
+  background: #27AE60;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+.formulario label {
+  font-weight: normal;
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.formulario .botonFormulario:hover, .formulario .botonFormulario:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+button.btn-flat{
+  color: white;
+  text-transform: capitalize;
+}
+button.btn-flat:hover{
+  opacity: 90%;
+  box-shadow: 1px 1px 1px 1px #9e9e9e;
+}
+button.btn-flat:active{
+  opacity: 85%;
+  color: #ffffffbf;
+  box-shadow: none;
+}
+a.btn-flat{
+  text-transform: capitalize;
+}
+a.btn-flat:hover{
+  opacity: 90%;
+  box-shadow: 1px 1px 1px 1px #9e9e9e;
+  color: #2e4ead;
+  background: #ddd;
+}
+a.btn-flat:active{
+  opacity: 85%;
+  color: #ffffffbf;
+  box-shadow: none;
+}
+.mensaje{
+  width: 80%;
+  margin: 1rem auto;
+  color:red;
+  overflow-y: scroll;
+  height: 6rem;
+}
+.padding{
+  padding: 0px 0px 0px 10px !important;
+}
+.mensajeModal{
+  width: 100%;
+  margin: 1rem auto;
+  color:red;
+  overflow-y: scroll;
+  height: 6rem;
+}
+.mensajeModal::-webkit-scrollbar,
+.mensaje::-webkit-scrollbar{
+  width: 7px
+}
+.mensajeModal::-webkit-scrollbar-thumb,
+.mensaje::-webkit-scrollbar-thumb{
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+.alert-box {
+  color:#555;
+  border-radius:10px;
+  padding:10px 10px 10px 36px;
+  margin:10px;
+  font-family: 'Montserrat', sans-serif;
+  color: #2C3E50;
+  font-size: 12px;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field{
+  height: 34px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #2C3E50;
+  font-size: 13px;
+}
+.select2-container--default .select2-selection--single {
+    border-radius: 3px;
+    border: 1px solid #dcdcdc;
+    height: 33px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 30px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  margin-top: auto;
+}
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #2e4ead;
+    background-color: #2e4ead;
+    z-index: 0;
+}
+[type="checkbox"].filled-in:not(:checked)+span:not(.lever):after {
+  border: 1px solid #9e8c8c;
+}
+input.form-control.form-control-sm{
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #2C3E50;
+  font-size: 13px;
+  height: 30px;
+}
+th {
+  background: #e0e0e0;
+}
+div.dataTables_wrapper div.dataTables_filter input {
+  margin: 3% 5px 3% 5px;
+  display: inline-block;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  height: 26px;
+  color: #6e6e6e;
+}
+div.dataTables_wrapper div.dataTables_filter input div#text-field-container {
+  margin: -2px;
+}
+div.dataTables_wrapper div.dataTables_filter input:focus{
+  border: 1px solid #999;
+}
+.modal div.dataTables_wrapper div.dataTables_filter input {
+  height: 13px;
+  width: 57%;
+}
+.pagination li.disabled a {
+    cursor: default;
+    color: #999;
+    font-size: 12px;
+}
+.pagination li.active a {
+    color: #fff;
+    font-size: 10px;
+}
+.pagination li.active {
+    background-color: #d1d1d1;
+}
+div.dataTables_wrapper div.dataTables_paginate{
+    margin: 0;
+    white-space: nowrap;
+    text-align: right;
+    margin-right: 55px;
+}
+.dataTables_scrollBody::-webkit-scrollbar{
+  width: 7px
+}
+.dataTables_scrollBody::-webkit-scrollbar-thumb{
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+/*alertify*/
+.ajs-message{
+  border: 1px solid #3d3d3d;
+  border-radius: 5px;
+  color: #222;
+  width: max-content !important;
+}
+.alertify-notifier.ajs-center.ajs-bottom .ajs-message.ajs-visible {
+  bottom: 10px;
+}
+.alertify .ajs-dialog {
+  /* transform: translateY(65%); */
+  position: absolute;
+  top: 4rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: min-content;
+}
+/*Modales*/
+.modal-content::-webkit-scrollbar{
+  width: 7px
+}
+.modal-content::-webkit-scrollbar-thumb{
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+/*---------------------- INDEX -------------------------------------------------------------------------------*/
+.wrapper{
+  margin: 10px;
+}
+.wrapper .top_navbar{
+  width: calc(100% - 20px);
+  height: 60px;
+  display: flex;
+  position: fixed;
+  top: 10px;
+}
+.wrapper .top_navbar .hamburger{
+  width: 70px;
+  height: 100%;
+  background: #2e4ead;
+  padding: 15px 17px;
+  border-top-left-radius: 20px;
+  cursor: pointer;
+  display: none;
+}
+.wrapper .top_navbar .hamburger div{
+  width: 35px;
+  height: 4px;
+  background: #92a6e2;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+.wrapper .top_navbar .top_menu{
+  width: calc(100% - 0px);
+  height: 100%;
+  background: #fff;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.wrapper .top_navbar .top_menu .imgLogo{
+  width: 216px;
+  border-radius: 6px;
+  border-top-left-radius: 20px;
+  padding-left: 1px;
+}
+.wrapper .top_navbar .top_menu ul{
+  display: flex;
+}
+.wrapper .top_navbar .top_menu ul .configuracionUser a{
+  overflow: hidden;
+}
+.wrapper .top_navbar .top_menu ul .configuracionUser a img{
+  border-radius: 900px;
+  width: 94%;
+  height: 94%;
+  margin: 1px;
+}
+.wrapper .top_navbar .top_menu ul li a{
+  display: block;
+  margin: 0 10px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border: 1px solid #2e4ead;
+  border-radius: 50%;
+  color: #2e4ead;
+}
+.wrapper .top_navbar .top_menu ul li a:hover{
+  background: #4360b5;
+  color: #fff;
+}
+.wrapper .top_navbar .top_menu ul li a:hover i{
+  color: #fff;
+}
+/*Estilos sidebar lateral*/
+.wrapper .sidebar{
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  background: #2e4ead;
+  width: 200px;
+  height: calc(100% - 80px);
+  border-bottom-left-radius: 20px;
+  transition: all 0.3s ease;
+}
+.wrapper .sidebar ul li a{
+    display: block;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 1px;
+    color: #92a6e2;
+    white-space: nowrap;
+}
+.wrapper .sidebar ul li a:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #92a6e2;
+  display: none;
+}
+.wrapper .sidebar ul li a span.icon{
+  margin-right: 11px;
+  display: inline-block;
+  font-size: 20px;
+}
+.wrapper .sidebar ul li a span.title{
+  display: inline-block;
+}
+.wrapper .sidebar ul li a span.flecha{
+  float: right;
+  padding: 7px 0px 0px 0px;
+}
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+  background: #4360b5;
+  color: #fff;
+}
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before{
+  display: block;
+}
+/*submenu del menu*/
+.wrapper .sidebar ul .sub{
+  background: #fff;
+  width: 200px;
+  height: min-content;
+  display: none;
+}
+.wrapper .sidebar ul .sub .sub-ul .sub-ul-li .sub-ul-li-a{
+  color: #4444449c; 
+}
+.wrapper .sidebar ul .sub .sub-ul .sub-ul-li .sub-ul-li-a .submenuIco{
+  margin-right: 7px;
+  display: inline-block;
+}
+.wrapper .sidebar ul .sub .sub-ul .sub-ul-li .sub-ul-li-a:hover,
+.wrapper .sidebar ul .sub .sub-ul .sub-ul-li .sub-ul-li-a.sub-activado
+{
+  color: #444444;
+  background: #92a6e2;
+  cursor: pointer;
+}
+/*Contenedor*/
+.wrapper .main_container{
+  width: (100% - 200px);
+  margin-top: 70px;
+  margin-left: 200px;
+  padding: 10px 15px 15px 15px;
+  transition: all 0.3s ease;
+}
+.wrapper .main_container .submenu{
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 22px;
+  margin-right: -15px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  height: 50px;
+}
+.wrapper .main_container .submenu a{
+  font-size: 14px;
+  margin-right: 18px;
+  text-transform: capitalize;
+  z-index: auto;
+}
+.wrapper .main_container .submenu a i{
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+.wrapper .main_container .contenido{
+  background: #fff;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 22px;
+  height: calc(100% - 90px);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  border-bottom-right-radius: 20px;
+  display: block;
+  width: calc(100% - 235px);
+  overflow: auto;
+  position: fixed;
+}
+.wrapper .main_container .contenido::-webkit-scrollbar{
+  width: 7px;
+}
+.wrapper .main_container .contenido::-webkit-scrollbar-thumb{
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+
+/*Menu opciones de usuario*/
+.wrapper .main_container .contenido .menuUser{
+  background: #e0e0e0;
+  width: max-content;
+  height: max-content;
+  float: right;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px 1px grey;
+  display: none;
+  position: absolute;
+  z-index: 10;
+  right: 18px;
+}
+.wrapper .main_container .contenido .menuUser ul{
+  padding: 4px;
+  text-align: center;
+}
+.wrapper .main_container .contenido .menuUser ul li{
+  color: #333;
+  padding: 3px 0px 0px 0px;
+}
+.wrapper .main_container .contenido .menuUser ul li:hover{
+  color: #2e4ead;
+  cursor: pointer;
+  background: #d1d1d1;
+}
+.wrapper .main_container .contenido .menuUser ul hr{
+  margin: 5px;
+}
+.wrapper .main_container .contenido .menuUser ul li .icoMenUs{
+  float: right;
+  width: 25px;
+  text-align: center;
+}
+.wrapper .main_container .contenido .menuUser ul .nombreUser{
+  padding: 8px 0px 8px 0px;
+}
+.wrapper .main_container .contenido .menuUser ul li.modFotoUser span.icoMenUs i{
+  padding-right: 4px;
+}
+/*
+.wrapper.collapse .sidebar{
+  width: 70px;
+}
+
+.wrapper.collapse .sidebar ul li a{
+  text-align: center; 
+}
+
+.wrapper.collapse .sidebar ul li a span.icon{
+  margin: 0;
+}
+
+.wrapper.collapse .sidebar ul li a span.title{
+  display: none;
+}
+
+.wrapper.collapse .main_container{
+  width: (100% - 70px);
+  margin-left: 70px;
+}
+*/
+/*Estilos titulo contenido*/
+.wrapper .main_container .contenido #divTit{
+  display: none;
+}
+.wrapper .main_container .contenido #divTit #tituloCont{
+  font-size: 22px;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  margin-top: 30px;
+  text-align: center;
+  color: #333333b3;
+  text-transform: capitalize;
+}
+h2.linea {
+  position: relative;
+  z-index: 1;
+  margin-top: 0px;
+  margin-bottom: 1px;
+}
+h2.linea:before {
+  border-top: 1px solid #aaa;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: -1;
+}
+h2.linea span {
+
+  background: #fff;
+  padding: 0 15px;
+}
+#divSubTit{
+  text-align: center;
+  font-size: 17px;
+  margin: 15px 7px 7px 7px;
+  color: #9e9e9e;
+}
+
+
+/*Estilos ventana de tabs*/
+.tabs .tab a {
+    color: #000000ad;
+    text-transform: capitalize;
+}
+.tabs .tab a i{
+    padding-top: 17px;
+    font-size: 15px;
+    padding-left: 12px;
+}
+.tabs .tab a:hover, .tabs .tab a.active {
+    background-color: transparent;
+    font-weight: bold;
+    color: #2e4ead;
+}
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: transparent;
+    outline: none;
+}
+.tabs .indicator {
+    display: none;
+}
+.row .col.s12 {
+  margin-top: 16px;
+}
+/*headings*/
+.tituloFormulario {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  margin-top: 0px;
+  text-align: center;
+}
+.subtituloFormulario {
+  font-weight: normal;
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  text-align: center;
+}
+/*progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  counter-reset: step;
+}
+#progressbar li {
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 33.33%;
+  float: left;
+  position: relative;
+}
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 10px;
+  color: #333;
+  background: white;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
+}
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1;
+}
+#progressbar li:first-child:after {
+  content: none; 
+}
+#progressbar li.active:before,  #progressbar li.active:after{
+  background: #27AE60;
+  color: white;
+}
+
+
+/*---------------------- POLIZAS -------------------------------------------------------------------------------*/
+/*Emitir una poliza*/
+#divPoliza #fieldsetPoliza .infoCabeceraEmisPoliza,
+#divPoliza #fieldsetPoliza .divResumenVigPoliza{
+  width: 100%;
+  height: auto;
+  background: #9e9e9e14;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 1rem auto;
+  text-align: center;
+  color: #7a7a7a;
+}
+#divPoliza #fieldsetPoliza .infoCabeceraEmisPoliza #nroPoliza{
+  color: #2e4ead;
+}
+#divPoliza #fieldsetPoliza .divResumenVigPoliza{
+  display: none;
+}
+#divPoliza #fieldsetPoliza .divResumenVigPoliza input{
+  display: none;
+}
+#divPoliza #fieldsetPoliza .divResumenVigPoliza .resumen #vigenciaInicioSpan,
+#divPoliza #fieldsetPoliza .divResumenVigPoliza .resumen #vigenciaFinSpan{
+  font-weight: 600;
+}
+select.select_cobertura{
+  width: 50%;
+  margin: 1rem auto;
+}
+/*consultar poliza*/
+#consultarPolRow{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #dddddd2e;
+  border-radius: 8px;
+}
+#consultarPolRow .btnActPolPadre{
+  padding: 1rem 0px 1rem 0px;
+}
+#consultarPolRow .btnActPolPadre .btnActualizarListPolizas{
+  float: right;
+}
+#consultarPolRow .btnActPolPadre .btnActualizarListPolizas img{
+  width: 29px;
+  margin: 3px 0px -7px -4px;
+}
+#selectVistaListPoliza{
+  height: 24px;
+  margin: -7px 0px 0px 0px;
+  padding: 0px 0px 0px 9px;
+  cursor: pointer;
+}
+.infoGeneral{
+  width: 86%;
+  height: auto;
+  padding: 5px;
+  position: relative;
+  margin: auto auto;
+  zoom: 90%;
+}
+.infoGeneral div{
+  margin: 0px 0px 5px 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 3px white;
+  text-align: center;
+}
+.infoGeneral div .titulo{
+  font-size: 20px;
+  color: #5897fb;
+}
+.infoGeneral div .subtitulo{
+  font-size: 15px;
+  color: #ee6e73;
+}
+.infoGeneral div hr{
+  width: 60%;
+  margin:auto;
+}
+.infoGeneral div div{
+  border: none;
+  line-height: 28px;
+  margin: auto;
+  padding-top: 4px;
+}
+.infoGeneral > div > div > div > p,
+.infoGeneral > div > div > p{
+  color:#0000006b;
+}
+.infoGeneral > div > div > div > p > span,
+.infoGeneral > div > div > p > span{
+  color:#000000de;
+}
+.infoGeneral .datosPoliza{
+  width: 33%;
+  height: 23rem;
+  background: white;
+  float: left;
+}
+.infoGeneral .datosPoliza .infPol,
+.infoGeneral .datosPoliza .infAdPol{
+ height: 9.5rem;
+ overflow-y: scroll;
+ text-align: center;
+}
+.infoGeneral .datosPoliza .infAdPol div{
+  text-align: center;
+}
+.infoGeneral .datosEstados .estAnt::-webkit-scrollbar,
+.infoGeneral .datosPoliza .infPol::-webkit-scrollbar,
+.infoGeneral .datosPoliza .infAdPol::-webkit-scrollbar{
+  width: 4px;
+}
+.infoGeneral .datosEstados .estAnt::-webkit-scrollbar-thumb,
+.infoGeneral .datosPoliza .infPol::-webkit-scrollbar-thumb,
+.infoGeneral .datosPoliza .infAdPol::-webkit-scrollbar-thumb{
+  background: #d1d1d164;
+  border-radius: 5px;
+}
+.infoGeneral .datosEstados{
+  width: 33%;
+  height: 18.7rem;
+  background: white;
+  float: left;
+}
+.infoGeneral .datosEstados .estAnt{
+  height: 10rem;
+  overflow-y: scroll;
+  width: 29rem;
+  font-size: 12px;
+}
+.infoGeneral .datosEstados .estAct span{
+  font-weight: 14px;
+}
+.infoGeneral .datosTomador{
+  width: 33%;
+  height: 23rem;
+  background: white;
+  float: left;
+}
+.infoGeneral .datosTomador .infTom{
+ text-align: center;
+ line-height: 25px;
+}
+.infoGeneral .datosVehiculo{
+  width: 33%;
+  height: 18.7rem;
+  background: white;
+  float: left;
+}
+.infoGeneral .datosVehiculo .infVe{
+  width: 100%;
+  height: 17rem;
+  font-size: 12px;
+  padding: 16px;
+}
+.infoGeneral .datosVehiculo .infVe .De,
+.infoGeneral .datosVehiculo .infVe .Iz{
+  width: 50%;
+  line-height: 20px;
+  text-align: left;
+}
+.infoGeneral .datosVehiculo .infVe .Iz{
+  float: left;
+}
+.infoGeneral .datosVehiculo .infVe .De{
+  float: right;
+}
+.infoGeneral .datosPago{
+  width: 32.9%;
+  height: 42rem;
+  background: white;
+  float: right;
+  top: 0px;
+  text-align: center;
+}
+.infoGeneral .datosPago .infCuo,
+.infoGeneral .datosPago .infPag{
+  text-align: center;
+  width: 29rem;
+}
+.infoGeneral .datosPago .infCuo table{
+  width: 100%;
+  zoom: 76%; 
+}
+.infoGeneral .datosPago .infCuo table tbody{
+  line-height: 7px;
+}
+.infoGeneral .datosPago .infCuo table th,
+.infoGeneral .datosPago .infCuo table tr,
+.infoGeneral .datosPago .infCuo table tbody tr td{
+  text-align: center;
+  background: transparent;
+  border: none;
+}
+.infoGeneral .datosPoliza,
+.infoGeneral .datosTomador,
+.infoGeneral .datosPago,
+.infoGeneral .datosEstados,
+.infoGeneral .datosVehiculo{
+  box-shadow: 0px 0px 4px #9e9e9e;
+  background-color: #eee3;
+  padding-top: 9px;
+}
+/*botones*/
+.botonesVerPol{
+  width: 86%;
+  padding: 10px;
+}
+.btnActConPol{
+  float: right;  
+}
+.btnActConPol img{
+  width: 29px;
+  margin: 3px 0px -7px -4px;
+}
+@media(min-width: 600px) and (max-width: 1600px){
+  .infoGeneral{
+    height: 100%;
+  }
+}
+@media(min-width: 600px) and (max-width: 800px){
+  .infoGeneral{
+    height: 100%;
+  }
+  .infoGeneral .datosPoliza,
+  .infoGeneral .datosTomador,
+  .infoGeneral .datosPago,
+  .infoGeneral .datosEstados,
+  .infoGeneral .datosVehiculo{
+    float: none;
+    display: table;
+    margin: 0px auto 10px auto;
+    width: 87%;
+    zoom: 78%;
+  }
+}
+@media(min-width: 800px) and (max-width: 1050px){
+  .infoGeneral .datosPoliza,
+  .infoGeneral .datosTomador,
+  .infoGeneral .datosPago,
+  .infoGeneral .datosEstados,
+  .infoGeneral .datosVehiculo{
+    width: 68%;
+    float: none;
+    display: table;
+    zoom: 100%;
+    margin: 0px auto 10px auto;
+  }
+  .botonesVerPol{
+    width: 68%;
+  }
+}
+@media(min-width: 1050px) and (max-width: 1200px){
+  .infoGeneral{
+    zoom: 58%;
+  }
+}
+@media(min-width: 1200px) and (max-width: 1397px){
+  .infoGeneral{
+    zoom: 68%;
+  }
+}
+@media(min-width: 1397px) and (max-width: 1600px){
+  .infoGeneral{
+    zoom: 85%;
+  }
+}
+@media(min-width: 1600px){
+  .infoGeneral{
+    zoom: 100%;
+  }
+}
+#informacionPoliza fieldset{
+    border: 1px solid #8d8d8d;
+    border-radius: 3px;
+}
+#infoCobertura{
+  height: 58%;
+  overflow-y: scroll;
+}
+#infoCobertura::-webkit-scrollbar{
+  width: 7px
+}
+#infoCobertura::-webkit-scrollbar-thumb{
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+#contenedorModalDatosPoliza{
+  padding: 6px 15px 0px 15px;
+}
+/*Renovacion de poliza*/
+#formRenPol .formRenovacionPol #formPolRen .infoCabeceraEmisPoliza,
+#formRenPol .formRenovacionPol #formPolRen .divResumenVigPoliza .resumen,
+#formRenPol .formRenovacionPol #formPolRen .divResumenVigPoliza .resumen input{
+  display: none;
+}
+.formulario.formRenovacionPol .titForPol,
+.titRenPago{
+  padding-bottom: 2rem;
+}
+.botRenPa,
+.botRenPol{
+  padding-top: 2rem;
+}
+.botRenPa .sigRenPa,
+.botRenPol .sigRenPol{
+  float: right;
+}
+.cuotasForm{
+  display: none;
+}
+.nroPagoMsje{
+  font-weight: bolder;
+}
+.subPagoMsje{
+  text-decoration: underline;
+}
+/*Estilos para la notificacion con informacion para renovar una poliza*/
+.alertRenPol{
+  margin: -33px -27px -15px -21px;
+}
+.alertRenPol .ARP1{
+  font-size: 21px;
+  text-align: center;
+  padding: 9px 0px 12px 0px;
+  color: #F44336;
+}
+.alertRenPol .ARP2{
+  text-align: center;
+  padding-bottom: 5px;
+}
+.alertRenPol .ARP3{
+  background: #eeeeeea6;
+  text-align: center;
+  padding: 2px;
+  border-radius: 5px;
+  color: #999;
+}
+.alertRenPol .ARP3 .ARP3-1{
+  font-weight: bold;
+}
+.alertRenPol .ARP4{
+  background: #eeeeeea6;
+  margin-top: 4px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 10px;  
+}
+.alertRenPol .ARP4 .ARP4-1{
+  padding: 3px;
+  text-align: center;
+  color: #333
+}
+.alertRenPol .ARP4 .ARP4-2{
+  text-align: center;
+  color: #999;
+}
+.alertRenPol .ARP4 .ARP4-2 .ARP4-2-1{
+  color: #008000ab;
+  font-weight: bold;
+}
+.alertRenPol .ARP4 .ARP4-3{
+  text-align: center;
+  color: #999;
+}
+.alertRenPol .ARP4 .ARP4-3 .ARP4-3-1{
+  font-weight: bold;
+  color: #f44336;;
+}
+.alertRenPol .ARP4 .ARP4-3 .ARP4-3-2{
+  margin: 2px;
+  color: #9e9e9e;
+}
+.alertRenPol .ARP4 .ARP4-3 .ARP4-3-2 .ARP4-3-2-1{
+  color: #2e4ead;
+}
+.alertRenPol .ARP4 .ARP4-3 .ARP4-3-2 .ARP4-3-2-3{
+  color: #f44336;
+}
+
+
+/*---------------------- ENDOSOS -------------------------------------------------------------------------------*/
+#formularioEndosoV, #formularioEndosoT, #formularioEndosoC fieldset{
+  width: 100%;
+}
+#modalEndosoVehiculo{
+  max-height: 100%;
+  width: 68rem;
+  height: 42rem;
+}
+#modalEndosoTomador{
+  max-height: 100%;
+  width: 68rem;
+  height: 42rem;
+}
+#modalEndosoTomador #preInfo #info{
+  margin-top: 2rem;
+  zoom: 84%;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+#modalEndosoTomador #preInfo #info label{
+  color: #ccc;
+}
+#modalEndosoTomador #preInfo #info input{
+  border-bottom: 1px solid #ccc;
+}
+
+#modalEndosoCobertura{
+  max-height: 100%;
+  width: 63rem;
+  height: 37rem;
+}
+/*Dimensiones de los modales pequeños*/
+#modalCambiarEstadoPoliza, #modalCambiarEstado, #modalSeleccionarEnd{
+  bottom: 40%;
+  height: 13rem;
+  width: 24rem;
+}
+.modal fieldset{
+  width: 100%;
+}
+#modalListadoDeEndososPorPoliza #cuerpoModalListadoEndosoPorPoliza .dataTables_scroll{
+  zoom: 78%;
+  font-size: 16px;
+}
+#modalDescripcionEndoso{
+  width: 39rem;
+  height: 21rem;
+}
+#modalDescripcionEndoso textarea{
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #797979;
+  min-width: 532px;
+  max-width: 532px;
+  min-height: 148px;
+  max-height: 200px;
+}
+.select2 select2-container select2-container--default select2-container--below{
+  padding-bottom: 10px;
+}
+#localidad{
+   padding-bottom: 9px;
+}
+.nuevoCliente{
+  padding-top: 2rem;
+}
+#siguientePoliza, 
+#siguienteTomador, 
+#siguienteVehiculo, 
+#siguienteCobertura, 
+#siguienteSiniestro, 
+#siguienteDenun, 
+#siguienteAcc, 
+#siguienteRec, 
+#cargarSiniestro, 
+#cancelarSin, 
+#cargar_datos, 
+#cancelar_datos{
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+}
+#cancelarSin{
+  right: 13rem;
+}
+#cargar_datos{
+  right: 10rem;
+}
+#atrasTomador, #atrasVehiculo, #atrasCobertura, #atrasPago, #atrasConductor, #atrasReclamante, #atrasAccidente, #atrasDenunciante {
+  /*top: 1rem*/
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+}
+#fieldsetSiniestro, #fielsetDenunciante, #fieldsetAccidente, #fieldsetReclamante, #fieldsetConductor{
+  height: 24.5rem;
+}
+#fieldsetVehiculo, #fieldsetTomador, #fieldsetPoliza, #fieldsetCobertura, #fieldsetPago{
+  height: 27.5rem;
+}
+
+
+
+/*---------------------- SINIESTROS -------------------------------------------------------------------------------
+
+/*registrar siniestros*/
+#modificarSiniestro #fieldsetSiniestro .cabeceraInfoSin,
+#divSiniestro #fieldsetSiniestro .cabeceraInfoSin{
+  width: 100%;
+  height: auto;
+  background: #9e9e9e14;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 1rem auto;
+  text-align: center;
+  color: #7a7a7a;
+}
+
+#modificarSiniestro #fieldsetSiniestro .cabeceraInfoSin .textoCabNuevoSinAzul,
+#divSiniestro #fieldsetSiniestro .cabeceraInfoSin .textoCabNuevoSinAzul{
+  color: #2e4ead;
+}
+#divDenunciante #fielsetDenunciante .mensCabDenunciante{
+  display: inline-flex;
+}
+.selectCondRecPadre,
+.selectDenunAsegPadre{
+    text-align: center;
+}
+.selectCondRecPadre select#selectCondRec,
+.selectDenunAsegPadre select#selectDenunAseg{
+  width: 31%;
+  margin: 0rem auto 2rem auto;
+}
+#fieldsetAccidente textarea#decripAcc{
+  max-height: 5rem;
+  max-width: 52rem;
+  min-width: 100%;
+  min-height: 4rem;
+  height: 4rem;
+}
+/*Modificar siniestros*/
+#tabFormularioPoliza fieldset,
+#tabFormularioSiniestro fieldset,
+#tabFormularioPoliza,
+#tabFormularioSiniestro{
+  width: 80%;
+}
+.btnsModificarSiniestro{
+  width: 80%;
+  margin: 1rem auto;
+}
+.btnsModificarSiniestro .btnsModSinHijo{
+  float: right;
+}
+#informacionSiniestro #descripcion #verDescAcc{
+  display: block;
+  background: #2e4eade8;
+  height: 100%;
+  max-height: 18%;
+  position: absolute;
+  border-radius: 5px;
+  padding: 1rem;
+  color: white;
+  width: 29%;
+  bottom: 30%;
+  display: none;
+}
+#modalAdminImgSin{
+  width: 83rem;
+  max-height: 100%;
+  height: 47rem;
+}
+#modalAdminImgSin .galeriaImg{
+  overflow: auto;
+  height: 81%;
+  border: 0.5px solid #bbb;
+  border-radius: 5px;
+  background: #eee;
+}
+#modalAdminImgSin .galeriaImg::-webkit-scrollbar{
+  width: 0px
+}
+#modalAdminImgSin div.divBtnsImagenSiniestro{
+  margin: 2rem 3rem 1rem 3rem;
+}
+#modalAdminImgSin div.divBtnsImagenSiniestro input#imagenSin{
+  display: none;
+}
+#modalAdminImgSin div.divBtnsImagenSiniestro label{
+  position: relative;
+  top: 2px;
+}
+
+#modalAdminImgSin div.divBtnsImagenSiniestro .btnImg{
+  float: right;
+  display: -webkit-inline-box;
+  height: 35px;
+}
+#modalAdminImgSin div.divBtnsImagenSiniestro .btnImg #divBot{
+ position: static;
+}
+#modalAdminImgSin div.divBtnsImagenSiniestro .btnImg #estadoSubida{
+  left: 65rem;
+  margin-right: 10px;
+  position: static;
+}
+#modalAdminImgSin div.divBtnsImagenSiniestro .btnImg #estadoSubida img{
+  height: 37.9px;
+}
+/*Estilos para la galeria de imagenes*/
+.gallery-container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  grid-template-rows: repeat(2,300px);
+}
+.gallery-container .gallery-card{
+overflow: hidden;
+margin: 2px;
+position: relative;
+}
+.gallery-container .gallery-card a{
+  width: 100%;
+  height: 100%;
+}
+.gallery-container .gallery-card a > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.2s;
+}
+.gallery-container .gallery-card a > img:hover{
+  transform: scale(1.08);
+}
+#infoPieImgSin{
+float: left;
+padding: 10px 20px;
+font-size: 15px;
+}
+.gallery-card .eliminarImg{
+position:absolute;
+top:0px;
+opacity:0;
+-webkit--transition:opacity 0.1s linear !important;
+cursor:pointer;
+border:0px;
+width:46px !important;
+height:46px !important;
+right:0px;
+border-radius: 10px;
+margin: 2%;
+background: #e9e9e9;
+}
+/* Mostramos el icono al pasar por encima de la imagen con una transicion */
+.gallery-card:hover .eliminarImg {
+transition: opacity 0.5s linear;
+-webkit-transition: opacity 0.5s linear;
+opacity: 0.8;
+}
+.gallery-card .eliminarImg i.fas.fa-trash-alt{
+font-size: 24px;
+color: #ff1b1be0;
+}
+.gallery-card .eliminarImg:hover i.fas.fa-trash-alt{
+font-size: 28px;
+color: red;
+}
+.gallery-card .eliminarImg:active{
+background: white;
+}
+div#lightboxOverlay.lightboxOverlay{
+  height: 100% !important;;
+  width: 100% !important;;
+}
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+  margin: 4px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 4px 4px 4px 4px;
+  background: white;
+}
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button:active{
+  background: #2196f3;
+}
+/*ver siniestros*/
+.infoSin-1{
+  width: 80%;
+  height: 42rem;
+  margin: auto;
+  zoom: 92%;
+}
+.infoSin-1 .infoSin-2{
+  width: 33%;
+  height: 50%;
+  background: #f8f8f8;
+  float: right;
+  margin: 10px 4px 1.5rem 0px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: auto;
+  padding: 1rem;
+}
+.infoSin-1 .infoSin-2::-webkit-scrollbar{
+  width: 7px
+}
+.infoSin-1 .infoSin-2::-webkit-scrollbar-thumb{
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+.infoSin-1 .infoSin-2 .infoSin-3-titGeneral{
+  background: #2e4ead;
+  text-align: center;
+  font-size: 25px;
+  padding: 7px;
+  color: #eee;
+  border-radius: 4px;
+  margin: 5px;
+  width: 100%;
+  border: 1px solid #d1d1d1;
+}
+.infoSin-1 .infoSin-2 .infoSin-3{
+  float: left;
+  width: 100%;
+  margin: 2rem auto auto 5px;
+  text-align: center;
+}
+.infoSin-1 .infoSin-2 .infoSin-3 .infoSin-4-titulo{
+  font-size: 16px;
+  color: #2e4ead;
+  background: #dadada;
+}
+.infoSin-1 .infoSin-2 .infoSin-3 .infoSin-4-contenido{
+  font-size: 17px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #505050;
+  background: #f1f0f0;
+  padding: 7px 3px 7px 3px;
+}
+.btnVolverConsultarSinPadre{
+  width: 80%;
+  margin: 1rem auto 10px auto;
+}
+
+/*---------------------- TOMADORES -------------------------------------------------------------------------------*/
+.mensaje.mensajeTomador{
+  width: 64%;
+  margin: -3rem 0% 0% 10%;
+}
+#divTomador #modalcliente{
+  width: 64rem;
+  height: 38rem;
+  max-height: 100%;
+}
+#divTomador #modalcliente .modal-content {
+  height: calc(100% - 40px);
+}
+#divTomador #modalcliente .modal-content div#cuerpoModal{
+  padding-bottom: 1rem
+}
+#divTomador .elementosSupNuevoTom{
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+#divTomador .elementosSupNuevoTom .elSupSelectTom{
+  width: 51%;
+}
+#divTomador .elementosSupNuevoTom .elSupBtnNuevoTom{
+  width: 49%;
+}
+#divTomador .elementosSupNuevoTom .elSupBtnNuevoTom #nuevoTomador{
+  float: right;
+}
+#divTomador #preInfo{
+  margin: 1rem auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  zoom: 83%;
+  width: 80%;
+}
+#divTomador #preInfo #info label{
+  color: #ccc;
+}
+#divTomador #preInfo #info input{
+  border-bottom: 1px solid #ccc;
+}
+#nuevoCliente{
+  width: 100%;
+  height: 360px;
+}
+#nuevoCliente .btnsNuevoTomador{
+  width: 80%;
+  height: 2rem;
+  margin: 1rem auto;
+}
+#nuevoCliente .btnsNuevoTomadorHijo{
+  float: right;
+}
+#consultarTomModal{
+  width: 54rem;
+  height: 37rem
+}
+.infoTom-1 .infoTom-2{
+  width: 100%;
+  height: 50%;
+  float: right;
+  margin: 10px 4px 1.5rem 0px;
+  border-radius: 6px;
+  overflow: auto;
+  padding: 1rem;
+}
+.infoTom-1 .infoTom-2::-webkit-scrollbar{
+  width: 7px
+}
+.infoTom-1 .infoTom-2::-webkit-scrollbar-thumb{
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+.infoTom-1 .infoTom-2 .infoTom-3{
+  float: left;
+  width: 48%;
+  margin: 2px 4px 2rem 4px;
+  text-align: center;
+}
+.infoTom-1 .infoTom-2 .infoTom-3 .infoTom-4-titulo{
+  font-size: 16px;
+  color: #2e4ead;
+  background: #dadada;
+}
+.infoTom-1 .infoTom-2 .infoTom-3 .infoTom-4-conteniido{
+  font-size: 17px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #505050;
+  background: #f1f0f0;
+  padding: 7px 3px 7px 3px;
+}
+
+/*---------------------- PAGOS -------------------------------------------------------------------------------*/
+#condicionesCuotasTabla .btnAdminPago:hover{
+  color: red;
+}
+#condicionesCuotasModal{
+  max-height: 100%;
+  height: 42rem;
+  width: 66rem;
+}
+.hrPago{
+  margin: 10px;
+}
+
+div.col.s2.divVerCuotas{
+  float: right;
+  text-align: center;
+}
+.mesesVigMuestra,
+#idPago{
+  display: none;
+}
+#mostrarCuotasModal{
+  width: 45%;
+  height: 63%;
+}
+.textoInformacionCabecera{
+  position: relative;
+  top: 32px;
+  background: #e0e0e047;
+  width: 75%;
+  padding: 1px 10px 1px 10px;
+  color: #a8a8a8;
+  font-size: 14px;
+  height: 26px;
+  margin-bottom: -4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.textoInformacionCabecera #numPol,
+.textoInformacionCabecera #tomador,
+.textoInformacionCabecera #primaTotal{
+  color:#3f51b5bf;
+}
+.textoInformacionCabecera .divPrTo{
+  float: right;
+}
+.textoInformacionCabecera, .divPrTo, #numPol, #tomador, #primaTotal{
+  font-family: 'Verdana';
+}
+.datosPol{
+  display: none;
+  text-align: center;
+}
+/*Estilos listado de recibos de pago de una poliza*/
+.LR1{
+  margin: auto;
+  padding: 1rem;
+  width: 75%;
+  max-height: 100%;
+  height: 38rem;
+  display: grid;
+}
+.LR1 .LR2{
+  overflow-y: scroll;
+  position: relative;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.LR1 .LR2 .LR3{
+  padding: 1rem;
+  display: -webkit-inline-box;
+  width: 49%;
+}
+.LR1 .LR2 .LR3 .LR4{
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+.btnsVerListCu{
+    width: 72%;
+    margin: auto;
+}
+.formEnvCorrListadoCuo,
+.btnDescargarListCu,
+.envEmail,
+.btnEnviarListCu{
+    float: right;
+    margin-left: 5px;
+}
+.envEmail{
+  height: 36px;
+  width: 185px;
+  border: 1px solid #ccc;
+  color: #999;
+  padding: 5px;
+  border-radius: 2px;
+}
+@media (max-width: 1300px){
+    .LR1{
+        zoom: 80%;
+    }
+}
+@media (max-width: 1223px){
+    .LR1{
+        zoom: 100%;
+    }
+    .LR1 .LR2 .LR3{
+        width: 100%;
+        display: -webkit-inline-box;
+    }
+}
+@media (max-width: 850px){
+    .LR1{
+        zoom: 60%;
+    }
+    .LR1 .LR2 .LR3{
+        width: 100%;
+        display: -webkit-inline-box;
+    }
+}
+.recibo{
+  width: 30rem;
+  height: auto;
+  padding-bottom: 6px;
+  background: #ddd;
+  border-radius: 5px;
+  display: block;
+  position: relative;
+}
+.nombreComp{
+  width: 14rem;
+  height: 4rem;
+  border-top-left-radius: 5px;
+  float: left;
+  background: #eee;
+}
+.logoAs{
+  width: 205px;
+}
+.infoComp{
+  width: 16rem;
+  height: 4rem;
+  background: #eee;
+  border-top-right-radius: 5px;
+  float: right;
+  font-size: 12px;
+  text-align: center;
+  line-height: 19px;
+}
+.neg{
+  font-weight: bold;
+}
+.datosRecibo, .infoVehic, .logoAs, .textoPieRec{
+  padding: 2px 12px 0px 12px;
+  font-size: 11px;
+}
+.datosRecibo{
+  height: 181px;
+  line-height: 18px;
+}
+.datosRecibo fieldset{
+  padding: 3px;
+  width: fit-content;
+  border-radius: 3px;
+}
+.infoVehic{
+  height: 4rem;
+  background: #eee;
+  line-height: 19px;
+}
+.pieRecibo{
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  line-height: 17px;
+  margin-top: 3px;
+}
+.textoPieRec{
+  font-size: 11px;
+}
+.lineaVenImp{
+  background: #0003;
+  margin: 4px 0px 0px 0px;
+  border-radius: 3px;
+  width: max-content;
+}
+.lineaVenImp .cont{
+  margin: 0px 6px 0px 6px;
+}
+.mostrarRecibo{
+  display: none;
+}
+.mostrarRecibo .contRecibo{
+  zoom: 185%;
+}
+.mostrarRecibo .btns-estados{
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 54%;
+  margin: auto;
+}
+.mostrarRecibo .btns-estados div{
+  text-align: center;
+}
+.mostrarRecibo .btns-estados .efectuar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.mostrarRecibo .btns-estados .efectuar span{
+  margin: auto;
+}
+.mostrarRecibo .btns-estados .efectuar span i{
+  font-size: 35px;
+  float: left;
+  color: #ccc;
+  margin: 0px 48px 0px 0px;
+}
+.mostrarRecibo .btns-estados .efectuar span span.aCobrar{
+  float: left;
+  margin: 6px 3px 6px 3px;
+  color: grey;
+  font-size: 24px;
+}
+#actualizarListCuotas{
+  float: left;
+}
+#actualizarListCuotas img{
+  width: 29px;
+  margin: 3px 0px -7px -4px;
+}
+.atrasDetallesCuotas{
+  float: left;
+  display: none;
+}
+#efectuarPago{
+  background: #4caf50;
+}
+#efectuarPago:hover{
+  background: green;
+  color: white;
+}
+div.conInfAcc{
+  color: green;
+  font-size: 17px;
+}
+.icCheckPago{
+  font-size: 25px;
+  color: green;
+}
+.btnEnviarRecibo{
+  border: 1px solid grey;
+  border-radius: 3px;
+  height: 2rem;
+  width: 5rem;
+  background: #e0e0e0;
+  color: #444444;
+  margin: 6px 6px 0px 11px;
+}
+.btnEnviarRecibo:hover{
+  cursor: pointer;
+  color: #2e4ead;
+  border: 1px solid #2e4ead;
+}
+.modalEnviarCorreo{
+  height: auto;
+  width: 378px;
+}
+.btnEnviarRecibo img{
+  margin: -9px;
+  width: 29px;
+}
+.formEnviarCorreo input.correo{
+  margin-bottom: 0px;
+}
+.mjeCorr label{
+  color: red;
+}
+/*Estilos botones accion recibo de poliza*/
+.impRecibo, .envRecibo{
+  padding: 9px;
+  display: none;
+}
+.envRecibo:hover,
+.impRecibo:hover{
+  background: #aaa;
+  color: #2e4ead;
+}
+.envRecibo a,
+.impRecibo a{
+  margin: 4px;
+}
+.envRecibo a:hover,
+.impRecibo a:hover{
+  color: #2e4ead;
+}
+/*facturar*/
+#detallesCuotasModal{
+  width: 67rem;
+  height: 45rem;
+}
+.tablaListadoCuotas{
+  zoom: 95%;
+  line-height: 20px;
+}
+#consultarPolizasTabla #info tr:hover{
+  background: #eeeeeed9;
+  cursor: pointer;
+}
+/*Mostrar condiciones de pago en modificar*/
+.infoPag-1 .infoPag-2{
+  height: 17rem;
+  margin: 0px 0px 40px 0px;
+  overflow: auto;
+  padding: 0px 7px;
+}
+.infoPag-1 .infoPag-2::-webkit-scrollbar{
+  width: 7px
+}
+.infoPag-1 .infoPag-2::-webkit-scrollbar-thumb{
+  background: #d1d1d1;
+  border-radius: 5px;
+}
+.infoPag-1 .infoPag-2 .infoPag-3{
+  margin: 10px 4px;
+}
+.infoPag-1 .infoPag-2 .infoPag-3 .infoPag-4-titulo{
+  font-size: 16px;
+  color: #2e4ead;
+  background: #dadada;
+}
+.infoPag-1 .infoPag-2 .infoPag-3 .infoPag-4-conteniido{
+  font-size: 17px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #959595;
+  background: #f1f0f0;
+  padding: 7px 3px 7px 3px;
+}
+.infoPag-1 .infoPag-2 .infoPag-3 .infoPag-4-conteniido div{
+  line-height: 2rem;
+}
+.infoPag-1 .infoPag-2 .infoPag-3 .infoPag-4-conteniido span{
+  color: #5c5c5c;
+}
+
+/*---------------------- USUARIOS -------------------------------------------------------------------------------*/
+
+/*Nuevo User*/
+#registroUser .tituloFormulario{
+  margin: 0px 0px 22px 0px;
+}
+.btnsRegistroUser{
+  padding: 0.75rem;
+}
+.btnsRegistroUser .modificarUser,
+.btnsRegistroUser .registrarUser{
+  float: right;
+}
+.ui-datepicker-title select{
+  display: inline;
+}
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+  width: 45%;
+  height: 24px;
+  padding: 0px;
+  margin: 0px;
+}
+#modalListadoUserBaja{
+  max-height: 100%;
+  height: 42rem;
+  width: 66rem
+}
+#listadoBajaUser tbody tr td a i:hover{
+  color: green;
+}
+/*Administrar users*/
+.rowListadoUsers{
+  width: 90%;
+}
+button.btnBajaUser,
+button.btnModRolUser,
+button.btnInfoUser,
+button.btnReenviarInfoAccesoUser{
+  display: none;
+}
+button.btnBajaUser,
+button.btnModRolUser,
+button.btnInfoUser,
+button.btnNuevoUser,
+button.btnListadoBajas{
+  color: white;
+}
+.selectUser:hover{
+  cursor: pointer;
+  background: #dadada;
+}
+/*Modificar rol usuario*/
+#modalModificarRolUser{
+  width: 35rem;
+  height: 36rem;
+}
+#modalModificarRolUser .modal-content .tituloFormulario{
+  padding-bottom: 14px;
+}
+#modalModificarRolUser .modal-content .contentMR{
+  height: 92%;
+}
+#modalModificarRolUser .modal-content .contentMR{
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  height: max-content;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR{
+  background: #ffffffe6;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR .tituloMR{
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+  color: #2b2b2b;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR .div2MR{
+  background: #eee;
+  padding: 7px;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR .div2MR .infoMR{
+  text-align: center;
+  color: #999;
+  padding: 0px 0px 11px 0px;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR .div2MR .subtituloMR{
+  text-align: center;
+  font-size: 17px;
+  color: #2e4ead;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR .div2MR .div3MR{
+  margin: auto;
+  width: 14rem;
+  height: 4.7rem;
+  padding: 4px;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR .div2MR .div3MR p a{
+  float: right;
+  margin-top: -9px;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR .div2MR .div3MR .div3MR-p1{
+  padding-bottom: 12px;
+  padding-right: 6px;
+}
+#modalModificarRolUser .modal-content .contentMR .div1MR .div2MR .div3MR .div3MR-p1 a{
+  padding-top: 4px;
+}
+/*Color y forma del check para seleccionar rol*/
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+  background-color: #2e4ead;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border: 1px solid #2e4ead;
+}
+[type="radio"]:not(:checked)+span:before, [type="radio"]:not(:checked)+span:after, [type="radio"]:checked+span:before, [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border-radius: 20%;
+}
+/*Estilos formulario para mostrar informacion de los users*/
+#modalVerInfoUser{
+  height: 37rem;
+  width: 66rem;
+}
+.infoUser-1{
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  height: max-content;
+}
+.infoUser-1 .tituloInfo{
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+  color: #333333d6;
+}
+.infoUser-1 .infoUser-2{
+  background: #eee;
+  padding: 12px;
+}
+.infoUser-1 .infoUser-2 .infoUser-3{
+  /*text-align: center;*/
+  color: #999;
+  padding: 9px 0px 0px 0px;
+}
+/*Subtitulo*/
+.infoUser-1 .infoUser-2 .infoUser-3 .infoUser-4 .infoUser-5-subt{
+  text-align: center;
+  font-size: 17px;
+  color: #2e4ead;
+}
+/*dato*/
+.infoUser-1 .infoUser-2 .infoUser-3 .infoUser-4 .infoUser-5-inf{
+  text-align: center;
+  color: #999;
+  padding: 0px 0px 0px 0px;
+}
+/*Modificar foto de perfil del usuario*/
+.formNuevaFotoUser{
+  width: 45%;
+  margin: auto;
+  text-align: center;
+}
+.formNuevaFotoUser fieldset .divActualFoto{
+  height: 7rem;
+}
+.formNuevaFotoUser fieldset .divActualFoto .divActualFotoHijo{
+  order: 1px solid blue;
+  width: min-content;
+  height: 6.8rem;
+  margin: auto;
+  border-radius: 50%;
+}
+.formNuevaFotoUser fieldset .divActualFoto a i{
+  font-size: 7rem;
+  color: #2e4ead;
+}
+.formNuevaFotoUser fieldset .divActualFoto .divActualFotoHijo img{
+  width: 100px;
+  border-radius: 50px;
+  height: 100px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+}
+.claseOpaco{ /*Aplicamos esta clase con jquery*/
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+.formNuevaFotoUser fieldset .divActualFoto .divActualFotoHijo img.fotoActualUser:hover{
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+.oculto{
+  display: none;
+}
+.formNuevaFotoUser fieldset .divActualFoto .divActualFotoHijo a.eliFotoUser{
+  bottom: 71%;
+  position: relative;
+}
+.formNuevaFotoUser fieldset .divActualFoto .divActualFotoHijo a.eliFotoUser:hover{
+  cursor: pointer;
+}
+.formNuevaFotoUser fieldset .divActualFoto .divActualFotoHijo a.eliFotoUser i{
+  font-size: 2rem;
+  color: #fd3021d1;
+}
+.formNuevaFotoUser fieldset .divActualFoto,
+.formNuevaFotoUser .nuevaFoto{
+  margin: 12px 0px 12px 0px;
+}
+.formNuevaFotoUser fieldset .grabarNuevaFotoUser{
+  float: right;
+  margin: 13px 0px 0px 0px;
+}
+.formNuevaFotoUser fieldset .volverGrabarFotoUser{
+  float: left;
+  margin: 13px 0px 0px 0px;
+}
+/*Reenviar informacion de acceso*/
+.modalReenviarInfoAcceso{
+  width: 33rem;
+}
+
+
+/*---------------------- SUCURSALES -------------------------------------------------------------------------------*/
+div #admSucursalesTabla_wrapper{
+  width: 90%;
+  margin: auto;
+}
+button.btnAgregarSucursal span{
+  color: white;
+}
+form#registroSucursal{
+  width: 80%;
+  margin: auto;
+  padding-top: 2rem;
+}
+form#registroSucursal .tituloFormulario{
+  margin: 1rem 0rem 2rem 0rem;
+}
+form#registroSucursal .subtituloFormulario{
+  margin: -1.5rem 0rem 2rem 0rem;
+}
+form#registroSucursal .btnsNavSucursal{
+  padding: 2rem 1rem 0rem 0rem;
+}
+form#registroSucursal .btnsNavSucursal button.btnSubmitSucursal {
+  float: right;
+}
+.divVerInfoSucursal{
+  width: 80%;
+  margin: auto;
+}
+.divVerInfoSucursal .infoUser-1{
+  border: none;
+}
+.divVerInfoSucursal .btnsNavSucursal{
+  margin-top: 2rem;
+}
