@@ -26,7 +26,7 @@
             <form method="post" id="formLogin">
                 <div class="divInput">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="u" id="u" placeholder="Correo o Usuario"/>
+                    <input type="text" name="u" id="u" placeholder="Usuario"/>
                 </div>
                 <div class="divInput">
                     <i class="fas fa-lock"></i>

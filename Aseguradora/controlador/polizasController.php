@@ -787,8 +787,8 @@ class PolizasController
                         SET 
                             P.clienteid       = ?,
                             P.coberturaid     = ?,
-                            P.vigencia_inicio = ?,
-                            P.vigencia_fin    = ?,
+                            -- P.vigencia_inicio = ?,
+                            -- P.vigencia_fin    = ?,
                             V.suma_asegurada  = ?,
                             V.marca_id        = ?,
                             V.modelo_id       = ?,
@@ -815,7 +815,7 @@ class PolizasController
                 
                 $stmt = $mysqli->prepare($sql);
                 if ($stmt!==FALSE) {
-                    $stmt->bind_param('iisssiissssiisssiiissssssi', $cliente, $cobertura, $iniVigPol, $finVigPol, $sumaAs, $marca, $modelo, $patente, $motor, $nroChasis, $nroMotor, $clase, $uso, $gps, $ceroKm, $cantKms, $cp, $vehiculoLocalidad, $cobAd, $combustible, $eGas, $anio, $pasajeros, $asientos, $color, $idPoliza);
+                    $stmt->bind_param('iisiissssiisssiiissssssi', $cliente, $cobertura, /*$iniVigPol, $finVigPol,*/ $sumaAs, $marca, $modelo, $patente, $motor, $nroChasis, $nroMotor, $clase, $uso, $gps, $ceroKm, $cantKms, $cp, $vehiculoLocalidad, $cobAd, $combustible, $eGas, $anio, $pasajeros, $asientos, $color, $idPoliza);
                     $stmt->execute();
                     $arr = array('success'=>true, 'accion'=>1);
                     $stmt->close();
@@ -1021,7 +1021,7 @@ class PolizasController
         foreach($r as $resp){
 
             $idPol     = $resp['id'];
-            $estado    = $resp['estado'];
+            $estActual = $resp['estado'];
             $emision   = $resp['fecha_emision'];
             $inicioVig = $resp['vigencia_inicio'];
             $finVigenc = $resp['vigencia_fin'];
@@ -1032,85 +1032,124 @@ class PolizasController
             $finVigenc = new DateTime( str_replace("/", "-", $resp['vigencia_fin']) );
             $anulacion = new DateTime( str_replace("/", "-", $resp['anulacion']) );
                 
-            //Se aplica la logica a toda poliza que no este renovada
-            if($estado != 4){
+            //Se actualiza el estado a todas aquellas polizas que no esten renovadas.
+            if($estActual != 4){
 
+                //Comprobamos el nuevo estado de la poliza.
                 //Si la fecha actual es mayor o igual a la emison y menor al inicio de vigencia = Espera
                 if($fecha_actual>=$emision && $fecha_actual<$inicioVig){
-                    $estActual = 5;
+                    $estNuevo = 5;
                 //Si la fecha actual es mayor o igual al inicio de vigencia y menor a fin de vigencia = Vigente
                 }else if($fecha_actual>=$inicioVig && $fecha_actual<$finVigenc){
-                   $estActual = 0;
+                    $estNuevo = 0;
                 //Si la fecha actual es mayor a fin de vigencia y menor a anulacion = Vencida
                 }else if($fecha_actual>=$finVigenc && $fecha_actual<$anulacion){
-                   $estActual = 1;
+                    $estNuevo = 1;
                 //Si la fecha actual es mayor o igual a la fecha de anulacion = Anulada
                 }else if($fecha_actual >= $anulacion){
-                    $estActual = 2;
+                    $estNuevo = 2;
                 }
-                
-
-                if($estActual != $estado){
-
-                    $stmt = $mysqli->prepare("UPDATE poliza SET estado = $estActual WHERE id = $idPol");
-                    if($stmt->execute()){
                         
-                        //Insertamos el cambio de estado en la linea del tiempo de estados de esa poliza
-                        $lineaTiempo = $this->guardarLineaTiempoEstadoPoliza($idPol, $estActual);
+                //Si el estado ACTUAL NO es vigente NI vigente-deuda (Es Espera, Vencido, Anulado), actualizamos el estado nuevo.
+                if($estActual!=0 && $estActual!=3){
 
-                        //Comprobamos la deuda en todas las polizas vigentes, si existen, sumamos un contador, en caso de que este sea mayor a 0, cambiamos el estado de la poliza a deuda, o viceversa
-                        if($estado == 0){
-                            $con = "SELECT C.estado as estadoCuota, P.estado as estadoPoliza
-                                    FROM cuotas C
-                                    INNER JOIN poliza P ON P.id = $idPol
-                                    WHERE pago_id = (SELECT id FROM pagos WHERE poliza_id = $idPol)";
-    
-                            $comp = $mysqli->prepare($con);
-    
-                            if($comp->execute()){
-                                $contDeud = 0;
-    
-                                foreach($comp->get_result() as $v){
-                                    if($v['estadoCuota'] == 4){
-                                        $contDeud ++;
-                                    }
-                                }
-    
-                                if($contDeud >= 1){ //Si existe una o mas deudas, cambiamos el estado y agregamos la linea del tiempo
-                                    $estPol = 3;
-                                    $arr['accion'] = 'deuda';
-                                    $stmt2 = $mysqli->prepare("UPDATE poliza SET estado = $estPol WHERE id = $idPol");
-                                    if($stmt2->execute()){
-                                        $this->guardarLineaTiempoEstadoPoliza($idPol, $estPol); //Cuando se cambia el estado a 'deuda', agregamos a la linea del tiempo
-                                    }
-                                    $stmt2->close();
-                                }else{
-                                    $arr['accion'] = 'sin deuda';
-                                }
-                                $arr['actEstPol'] = true;
-                            }                   
+                    echo 'Poliza '.$idPol.' espera, vencida, anulada: Actualizamos el estado';
+
+                    //Si el estado actual de la poliza es diferente al nuevo, se actualiza, y actualizamos la linea del tiempo. 
+                    if($estNuevo!=$estActual){
+
+                        $stmt = $mysqli->prepare("UPDATE poliza SET estado = $estNuevo WHERE id = $idPol");
+                        if($stmt->execute()){
+                            
+                            //Insertamos el cambio de estado en la linea del tiempo de estados de esa poliza
+                            $lineaTiempo = $this->guardarLineaTiempoEstadoPoliza($idPol, $estNuevo, $estActual);
+
                         }else{
-                            $arr['accion'] = 'sin polizas vig';
+                            echo $stmt->error;
                         }
+
+                        $stmt->close();
                     }else{
-                        echo $stmt->error;
+                        echo 'Poliza '.$idPol.'con el mismo estado 1';
                     }
-    
-                    $stmt->close();
-                }else{
-                    $arr['accion'] = 'Mismo estado';
+                         
+                //Si el estado ACTUAL ES vigente o vigente-deuda
+                }else if($estActual==0 || $estActual==3){
+
+                    //Buscamos el listado de cuotas de esa poliza.
+                    $con = "SELECT C.estado as estadoCuota, P.estado as estadoPoliza
+                    FROM cuotas C
+                    INNER JOIN poliza P ON P.id = $idPol
+                    WHERE pago_id = (SELECT id FROM pagos WHERE poliza_id = $idPol)";
+
+                    $comp = $mysqli->prepare($con);
+
+                    if($comp->execute()){
+                        $contDeud = 0;
+                        foreach($comp->get_result() as $v){
+                            if($v['estadoCuota']==4){
+                                $contDeud ++;
+                            }
+                        }
+
+                        //Si existe una o mas deudas
+                        if($contDeud>=1){
+
+                            //Si el estado es vigente (existiendo deudas), actualizamos a vigente-deuda
+                            if($estActual==0){
+                                $estPol = 3;
+                                $stmt2 = $mysqli->prepare("UPDATE poliza SET estado = $estPol WHERE id = $idPol");
+                                if($stmt2->execute()){
+                                    $this->guardarLineaTiempoEstadoPoliza($idPol, $estPol, $estActual); //Cuando se cambia el estado, agregamos a la linea del tiempo
+                                }
+                                $stmt2->close();
+
+                                echo 'Poliza '.$idPol.' vigente: Existe deuda, actualizamos el estado a vigente-deuda';
+
+                            //Si el estdo es vigente-deuda (existiendo deudas), mantenemos el estado.
+                            }else if($estActual==3){
+                                echo 'Poliza '.$idPol.' vigente-deuda: Existe deuda, mantenemos el estado vigente-deuda';
+                            }
+                        
+                        //Si no existe deuda, actualizamos al nuevo estado correspondiente
+                        }else if($contDeud==0){
+
+                            echo 'Poliza '.$idPol.' vigente, sin deuda, actualizamos al estado nuevo';
+
+                            //Si el estado actual de la poliza es diferente al nuevo, se actualiza, y actualizamos la linea del tiempo. 
+                            if($estNuevo!=$estActual){
+
+                                $stmt = $mysqli->prepare("UPDATE poliza SET estado = $estNuevo WHERE id = $idPol");
+                                if($stmt->execute()){
+                                    
+                                    //Insertamos el cambio de estado en la linea del tiempo de estados de esa poliza
+                                    $lineaTiempo = $this->guardarLineaTiempoEstadoPoliza($idPol, $estNuevo, $estActual);
+
+                                }else{
+                                    echo $stmt->error;
+                                }
+
+                                $stmt->close();
+                            }else{
+                                echo 'Poliza '.$idPol.'con el mismo estado 2';
+                            }
+                        }
+
+                    }  
+
                 }
+
+                $arr['actEstPol'] = true;
             }
         }
 
         return json_encode($arr);
     }
     
-    public function guardarLineaTiempoEstadoPoliza($polizaId, $nuevoEstado)
+    public function guardarLineaTiempoEstadoPoliza($polizaId, $nuevoEstado, $estAnt)
     {
         $mysqli = $this->conexion;
         $arr['LtEstPoliza'] = false;
-        $fechaActual = Date("d/m/Y - H:i");
         $polizaId = $polizaId;
         $nuevoEstado = $nuevoEstado;
 
@@ -1127,9 +1166,51 @@ class PolizasController
             }
         }
         $stmtNroHilo->close();
+
+        //Asignamos horarios predeterminados dependiendo del estado a actualizar
+        if($nuevoEstado == 5){
+            $FechaInicio = Date("d/m/Y - H:i");
+            $fechaFinal = Date("d/m/Y").' - 11:59';
+
+        }else if($nuevoEstado == 0){ //Vigente
+
+            //Cuando actualizamos a vigente, y el estado anterior es vigente-deuda, la hora de finalizacion es la actual.
+            if($estAnt==3){
+                $FechaInicio =  Date("d/m/Y - H:i");
+                $fechaFinal =  Date("d/m/Y - H:i");
+            
+            }else{
+                $FechaInicio =  Date("d/m/Y").' - 12:00';
+                $fechaFinal =  Date("d/m/Y").' - 11:59'; 
+            }
+
+        }else if($nuevoEstado == 1){ //Vencida
+            $FechaInicio =  Date("d/m/Y").' - 12:00';
+            $fechaFinal =  Date("d/m/Y").' - 11:59';
+
+        }else if($nuevoEstado == 3){ //Vigente-deuda
+
+            //Cuando actualizamos a vigente-deuda, y el estado anterior es vigente, la hora de finalizacion es la actual.
+            //Nos damos cuenta que se trata de una re-vigencia ya que el numero de hilo es mayor a 3.
+            // if($nroHilo>3){
+            //     $FechaInicio =  Date("d/m/Y - H:i");
+            //     $fechaFinal =  Date("d/m/Y - H:i");
+            // }else if($nroHilo<=3){
+                
+            // }
+
+            $FechaInicio =  Date("d/m/Y").' - 00:00';
+            $fechaFinal =  Date("d/m/Y - H:i");
+
+        }else if($nuevoEstado == 4){
+            $FechaInicio = Date("d/m/Y - H:i");
+        
+        }else if($nuevoEstado == 2){
+            $FechaInicio = Date("d/m/Y - H:i");
+        }
         
         //Asignamos una fecha de finalizacion del lapso al ultimo hilo de la linea del tiempo de estados de la poliza
-        $stmtAsFech = $mysqli->prepare("UPDATE ltestpol SET fin_lapso = '$fechaActual' WHERE polizaid = '$polizaId' AND nrohilo = '$nroHilo'");
+        $stmtAsFech = $mysqli->prepare("UPDATE ltestpol SET fin_lapso = '$fechaFinal' WHERE polizaid = '$polizaId' AND nrohilo = '$nroHilo'");
         if($stmtAsFech){
             $stmtAsFech->execute();
         }
@@ -1141,7 +1222,7 @@ class PolizasController
         $sql = "INSERT INTO ltestpol (polizaid, nrohilo, estado, inicio_lapso, fin_lapso) VALUES (?,?,?,?,?)";
         $stmt = $mysqli->prepare($sql);
         if($stmt){
-            $stmt->bind_param('isiss', $polizaId, $nroHiloNuevo, $nuevoEstado, $fechaActual, $finLapso);
+            $stmt->bind_param('isiss', $polizaId, $nroHiloNuevo, $nuevoEstado, $FechaInicio, $finLapso);
             $stmt->execute();
             $arr['LtEstPoliza'] = true;
         }

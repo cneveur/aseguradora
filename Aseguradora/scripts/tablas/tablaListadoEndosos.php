@@ -2,9 +2,7 @@
     include_once '../../config/db.php';
 
     $conexion = Database::connect();
-
     $mysqli = $conexion;
-
     $tabla = array();
 
     $sql  = "SELECT
@@ -43,7 +41,7 @@
         }
     }
     $stmt->close();
+    
     echo json_encode(array('data' => $tabla));
 
-    /*onclick="procesarDatosEndoso('.$mostrar[0].')"*/
  ?>

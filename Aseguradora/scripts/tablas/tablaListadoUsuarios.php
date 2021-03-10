@@ -7,9 +7,7 @@
     }
 
     $conexion = Database::connect();
-
     $mysqli = $conexion;
-
     $tabla = array();
 
     $sql  = "SELECT id, nro, nombre, rol, estado FROM usuarios WHERE estado = 'Activo' AND id <> ?";

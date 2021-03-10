@@ -2,12 +2,8 @@
     include_once '../../config/db.php';
 
     $conexion = Database::connect();
-
     $mysqli = $conexion;
-
     $tabla = array();
-
-    //Mostrar polizas que no tienen un criterio de pago establecido
 
     $sql  = "SELECT
                 P.id,

@@ -111,7 +111,7 @@ function ingresarSistema()
                         setTimeout(() => { $(".mjeLogin").slideUp(200) }, 3000);
                     }
                 }else if(r.existe==false){
-                    $(".mjeLogin").html('El Usuario o Correo ingresado no coincide con nuestros registros').slideDown(200)
+                    $(".mjeLogin").html('El Usuario ingresado no coincide con nuestros registros').slideDown(200)
                     $("#envFormLogin").html('<span> Reintentar <i class="fas fa-redo-alt"></i> </span>').show().attr('disabled', false)
                     setTimeout(() => { $(".mjeLogin").slideUp(200) }, 3000);
                 }

@@ -571,6 +571,7 @@ function funcionalidadesTomador()
 		 }
 	});
 
+	// Limpiamos los campos del formulario de cliente al presionar las opciones de cancelar.
 	$('#cancelarCliente, #cancelarClienteSec, #cancelarClienteAdmin').on('click',function(){
 
 		$("#nuevoCliente").validate().destroy();

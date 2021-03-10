@@ -2,11 +2,7 @@
     include_once '../../config/db.php';
 
     $conexion = Database::connect();
-
     $mysqli = $conexion;
-
-    //$tabla  = '';
-
     $tabla = array();
 
     $sql  = "SELECT
@@ -37,7 +33,7 @@
         {
             while ($mostrar = mysqli_fetch_row($rs)){
 
-                //Agregamos un span con la fecha en formato yyyy/mm/dd para poder ordenarlo en datatables
+                // Agregamos un span con la fecha en formato yyyy/mm/dd para poder ordenarlo en datatables.
                 $f = str_replace('/', '-', $mostrar[4]);
                 $fechaOrdenar = date("Y/m/d", strtotime($f));
 

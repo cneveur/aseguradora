@@ -2,9 +2,7 @@
     include_once '../../config/db.php';
 
     $conexion = Database::connect();
-
     $mysqli = $conexion;
-
     $tabla = array();
 
     $sql  = "SELECT T.id, T.nombre, T.num_tom, P.nombre AS provincia, proper(L.nombre) AS localidad
@@ -38,5 +36,4 @@
     $stmt->close();
     echo json_encode(array('data' => $tabla));
 
-    /*onclick="procesarDatosEndoso('.$mostrar[0].')"*/
  ?>

@@ -1,4 +1,4 @@
-<!-- Tabla donde muestro la lista de polizas a a establecer metodos de pago -->
+<!-- Tabla donde muestro la lista de polizas -->
 <div class="row" id="consultarPolRow">
   <div class="col s12">
     <table id="condicionesCuotasTabla" class="centered striped">

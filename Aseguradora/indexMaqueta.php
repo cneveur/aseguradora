@@ -1,10 +1,12 @@
 <?php
     session_start();
     if(isset($_SESSION['user'])){
+
         if($_SESSION['user']['rol']=='Administrador'){
             ob_start();
                 require_once 'vista/maqueta/sidebarAdmin.php';
             $sidebar = ob_get_clean();
+
         }else if($_SESSION['user']['rol']=='Usuario'){
 
             ob_start();
@@ -24,7 +26,7 @@
         <?php require_once 'vista/maqueta/linksHead.php' ?>
     </head>
 
-    <body>
+    <body onload="">
         <div class="wrapper">
             <?php require_once 'vista/maqueta/topNavbar.php' ?>
             <div class="sidebar"> <?= $sidebar ?> </div>

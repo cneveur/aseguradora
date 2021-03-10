@@ -36,9 +36,9 @@
                 $arr1[]             = $arr;
             }
         }
-        echo json_encode($arr1);
     }
+    
     $stmt->close();
+    echo json_encode($arr1);
 
-    /*onclick="editarDescripcion('.$mostrar[0].')"*/
  ?>

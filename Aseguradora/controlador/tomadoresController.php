@@ -102,19 +102,15 @@ class TomadoresController{
 
             if(!$error){
 
-            $nom1  = ucwords($nom); 
-            $per1  = ucwords($per); 
-            $nac1  = ucwords($nac); 
-            $pro1  = ucwords($pro);
-            $loc1  = ucwords($loc); 
-            $call1 = ucwords($call); 
-            $gen1  = ucwords($gen);
+                $nom1  = ucwords($nom); 
+                $per1  = ucwords($per); 
+                $nac1  = ucwords($nac); 
+                $pro1  = ucwords($pro);
+                $loc1  = ucwords($loc); 
+                $call1 = ucwords($call); 
+                $gen1  = ucwords($gen);
 
-            $num_tom = '';
-            for($i=0; $i < 8; $i++) { 
-                $numero = rand(1,9);
-                $num_tom = $num_tom.$numero;
-            }
+                $num_tom = rand(9999999, 99999999);
 
                 $mysqli->set_charset("utf8");
                 $sql  = "INSERT INTO tomador (num_tom, nombre, documento, persona, nacionalidad, provincia, localidad, cp, calle, genero, telefono, correo, fecha_nac) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";

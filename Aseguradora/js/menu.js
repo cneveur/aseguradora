@@ -212,4 +212,8 @@ jQuery(document).ready(function($){
 
   })
 
+
+  //Nos redirigimos directamente al inicio.
+  $("#inicio").trigger('click');
+
 });

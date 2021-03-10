@@ -1,6 +1,4 @@
 <?php   
-
-include_once('../config/db.php');
     
 class PagosController{
 
@@ -22,11 +20,8 @@ class PagosController{
 
         $sumAs = str_replace('.', '', $sumAs); //Eliminamos el punto (.)
 
-        $iden_pago = 0;
-        for ($l = 1; $l <= 10; $l++) {
-            $f=mt_rand(1,9);
-            $iden_pago = $iden_pago.$f;
-        }
+        // Generamos un numero aleatorio para el pago
+        $iden_pago = mt_rand(999999999, 9999999999);
 
         $idPol = $idPol;
 

@@ -32,11 +32,11 @@ class SistemaController{
 
         $sql = "SELECT id, nombre, usuario, correo, pass, rol, estado                                                   
                 FROM usuarios
-                WHERE usuario = ? OR correo = ? ";
+                WHERE usuario = ?";
 
         $stmt = $mysqli->prepare($sql);
         if($stmt){
-            $stmt->bind_param('ss', $user, $user);
+            $stmt->bind_param('s', $user);
             $stmt->execute();
             $r = $stmt->get_result();
 

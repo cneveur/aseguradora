@@ -22,16 +22,5 @@
 		</div>
 	</div>
 </div>
-
-
- <!-- Ventana modal donde muestro la informacion de la poliza elegida 
- <div id="modalPoliza" class="modal modal-fixed-footer">
-   <div class="modal-content" id="contenedorModalDatosPoliza"></div>
-   <div class="modal-footer">
-     <a id="cancelarCliente" class="modal-close waves-light btn-small" ><i class="fas fa-times"></i> <span class="MAI">cerrar</span></a>
-   </div>
- </div>
-
- <div id="datosPoliza"></div>-->
  
 <script type="text/javascript" src="js/poliza.js?v=3"></script>
